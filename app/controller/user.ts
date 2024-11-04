@@ -27,7 +27,7 @@ export default class UserController extends Controller {
    */
   async isUserLogin() {
     const { ctx, service } = this;
-    const token = ctx.request.header.authorization;
+    const token = ctx.request.header.authorization || '';
 
     try {
       const account = await service.user.isLogin(token);
